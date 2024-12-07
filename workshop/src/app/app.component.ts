@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { BannerComponent } from './banner/banner.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { CatalogComponent } from './catalog/catalog.component';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    CatalogComponent
+    CatalogComponent,
+    BannerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
