@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { BannerComponent } from './banner/banner.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { BannerComponent } from './banner/banner.component';
     HeaderComponent,
     FooterComponent,
     CatalogComponent,
-    BannerComponent
+    BannerComponent,
+    AuthenticateComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BannerComponent } from './banner/banner.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { RegisterComponent } from './user/register/register.component';
 // import { HomeComponent } from './home/home.component';
 // import { PageNotFoundComponent } from './error/error.component';
 // import { LoginComponent } from './user/login/login.component';
@@ -19,7 +20,7 @@ export const routes: Routes = [
 
 //   //   Start - User routing
 // //   { path: 'login', component: LoginComponent },
-// //   { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
 // //   { path: 'profile', component: ProfileComponent },
 //   //   End - User routing
 
