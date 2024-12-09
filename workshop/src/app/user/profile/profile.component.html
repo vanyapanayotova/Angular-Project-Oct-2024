@@ -21,7 +21,7 @@
         <form [formGroup]="form" (ngSubmit)="handleSaveProfile()">
        
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
+            <label for="username" class="form-label fw-bold">Username</label>
             <input 
               type="text" 
               class="form-control" 
@@ -45,11 +45,10 @@
           </div>
   
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <label for="email" class="form-label fw-bold">Email address</label>
             <input 
               type="email" 
               class="form-control" 
-              id="exampleInputEmail1" 
               aria-describedby="emailHelp"
               name="email" 
               id="email" 
@@ -70,7 +69,7 @@
           </div>
   
           <div class="mb-3">
-            <label for="tel" class="form-label">Phone number</label>
+            <label for="tel" class="form-label fw-bold">Phone number</label>
             <input 
               type="text" 
               class="form-control" 

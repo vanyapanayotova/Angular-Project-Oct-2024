@@ -2,7 +2,19 @@ const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
 const themeSchema = new mongoose.Schema({
-    themeName: {
+    recipeName: {
+        type: String,
+        required: true
+    },
+    products: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    imgUrl: {
         type: String,
         required: true
     },

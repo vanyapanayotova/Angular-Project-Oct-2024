@@ -4,6 +4,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { RecipesListComponent } from './recipe/recipeList/recipes-list.component';
 // import { HomeComponent } from './home/home.component';
 // import { PageNotFoundComponent } from './error/error.component';
 // import { LoginComponent } from './user/login/login.component';
@@ -18,7 +19,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: BannerComponent },
-  { path: 'recipes', component: CatalogComponent },
+  { path: 'recipes', component: RecipesListComponent },
 
   //   //   Start - User routing
   { path: 'login', component: LoginComponent },
