@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { UserForAuth } from '../types/user';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, catchError, Subscription, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -57,7 +57,12 @@ export class UserService implements OnDestroy {
   getProfile() {
     return this.http
       .get<UserForAuth>('/api/users/profile')
-      .pipe(tap((user) => this.user$$.next(user)));
+      // .pipe(catchError(this.handleError))
+      .pipe(tap((user) => {
+        return this.user$$.next(user)
+      }
+        
+    ));
   }
 
   updateProfile(username: string, email: string, tel?: string) {
@@ -72,5 +77,19 @@ export class UserService implements OnDestroy {
 
   ngOnDestroy(): void {
     this.userSubscription?.unsubscribe();
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }

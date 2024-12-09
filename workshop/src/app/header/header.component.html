@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand fs-3" href="#">COOKIFY</a>
+    <a class="navbar-brand fs-3" routerLink="/home">COOKIFY</a>
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse ms-4" id="navbarCollapse">
-      
+
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
@@ -14,24 +14,36 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/recipes">Recipes</a>
         </li>
+
+        @if(isLoggedIn){
         <li class="nav-item">
           <a class="nav-link disabled" routerLink="/add-recipe" tabindex="-1" aria-disabled="true">Add Recipe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" routerLink="/my-recipes" tabindex="-1" aria-disabled="true">My recipes</a>
         </li>
+        }
+
       </ul>
 
       <ul class="navbar-nav justify-content-end mb-2 mb-md-0">
+
+        @if(isLoggedIn){
+          <li class="nav-item text-end">
+            <a class="nav-link text-end" routerLink="/profile">Profile</a>
+          </li>
+        <li class="nav-item text-end">
+          <a class="nav-link text-end" (click)="logout()" href="#">Logout</a>
+        </li>
+        } @else {
         <li class="nav-item">
           <a class="nav-link" routerLink="/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item text-end">
-          <a class="nav-link text-end" routerLink="/logout">Logout</a>
-        </li>
+        }
+
       </ul>
 
     </div>

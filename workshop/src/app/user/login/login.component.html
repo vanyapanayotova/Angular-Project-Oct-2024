@@ -1,85 +1,85 @@
 <!-- homepage -->
 <div class="container">
-  <form class="login" #form="ngForm" (ngSubmit)="login(form)">
-    <fieldset>
-      <h2>Login Form</h2>
 
-      <p class="field field-icon">
-        <label for="email"
-          ><span><i class="fas fa-envelope"></i></span
-        ></label>
-        <!-- class="input-error" -->
-        <input
-          [class]="(
-            (inputEmail?.touched && inputEmail?.errors?.['required']) || 
-             (inputEmail?.touched && inputEmail?.errors?.['emailValidator']))
-             ? 'input-error': ''"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="john.doe@gmail.com"
-          ngModel
-          #inputEmail="ngModel"
-          required
-          [appEmail]="domains"
-        />
-      </p>
+  <div class="card mx-auto">
+    <div class="card-body">
+      <h1 class="card-title">Login Form</h1>
+      <h6 class="card-subtitle mb-2 text-muted mb-4">Login to our website to add your cooking recipes.</h6>
 
-      @if(inputEmail?.touched){
-      <div>
-        @if(inputEmail?.errors?.['required']){
-        <p class="error">Email is required!</p>
-        }
-        <!--  -->
-        @if(inputEmail?.errors?.['emailValidator']){
-        <p class="error">Email is not valid!</p>
-        }
-      </div>
-      }
 
-      <p class="field field-icon">
-        <label for="password"
-          ><span><i class="fas fa-lock"></i></span
-        ></label>
-        <input
-          [class]="(
-          (inputPassword?.touched && inputPassword?.errors?.['required']) || 
-           (inputPassword?.touched && inputPassword?.errors?.['minlength']))
-           ? 'input-error': ''"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="******"
-          ngModel
-          #inputPassword="ngModel"
-          minlength="5"
-          required
-        />
-      </p>
+      <form #form="ngForm" (ngSubmit)="login(form)">
+       
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            aria-describedby="email"
+            [class]="((inputEmail?.touched && inputEmail?.errors?.['required']) || (inputEmail?.touched && inputEmail?.errors?.['emailValidator'])) ? 'input-error': ''"
+            name="email"
+            id="email"
+            ngModel
+            #inputEmail="ngModel"
+            required
+            [appEmail]="domains"
+          >
 
-      @if(inputPassword?.touched){
-      <div>
-        @if(inputPassword?.errors?.['required']){
-        <p class="error">Password is required!</p>
-        }
-        <!--  -->
-        @if(inputPassword?.errors?.['minlength']){
-        <p class="error">Password must be at least 5 characters!</p>
-        }
-      </div>
-      }
 
-      <button
-        [disabled]="form.invalid"
-        [style]="{ backgroundColor: form.invalid ? 'grey' : '#234465' }"
-      >
+          @if(inputEmail?.touched){
+            <div class="form-text">
+              @if(inputEmail?.errors?.['required']){
+              <p class="error">Email is required!</p>
+              }
+              <!--  -->
+              @if(inputEmail?.errors?.['emailValidator']){
+              <p class="error">Email is not valid!</p>
+              }
+            </div>
+            }
+        </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input 
+              class="form-control" 
+              [class]="((inputPassword?.touched && inputPassword?.errors?.['required']) || (inputPassword?.touched && inputPassword?.errors?.['minlength'])) ? 'input-error': ''"
+              type="password"
+              name="password"
+              id="password"
+              ngModel
+              #inputPassword="ngModel"
+              minlength="5"
+              required
+            >
+
+              @if(inputPassword?.touched){
+                <div class="form-text">
+                  @if(inputPassword?.errors?.['required']){
+                  <p class="error">Password is required!</p>
+                  }
+                  <!--  -->
+                  @if(inputPassword?.errors?.['minlength']){
+                  <p class="error">Password must be at least 5 characters!</p>
+                  }
+                </div>
+                }
+          </div>
+
+
+        
+        <button 
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="form.invalid" 
+        >
         Login
-      </button>
+        </button>
 
-      <p class="text-center">
-        Have an account?
-        <a routerLink="/register">Register</a>
-      </p>
-    </fieldset>
-  </form>
+      </form>
+
+      <a routerLink="/register" class="card-link">Register</a>
+
+    </div>
+  </div>
+
 </div>

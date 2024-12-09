@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     const { username, email, tel } = this.userService.user!;
+
     this.profileDetails = { username, email, tel: tel! };
 
     this.form.setValue({

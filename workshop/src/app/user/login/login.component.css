@@ -1,4 +1,12 @@
-/* login register forms */
+.card {
+  max-width: 400px;
+}
+.error {
+  color: red;
+}
+
+
+/* login register forms
 
 form.login,
 form.register {
@@ -120,4 +128,4 @@ p.error {
 .input-error {
   border-left-color: red !important;
   border-color: red !important;
-}
+} */
