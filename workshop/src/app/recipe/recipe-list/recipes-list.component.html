@@ -1,19 +1,23 @@
 <main>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-1 bg-light">
     <div class="container">
 
       @if (isLoading) {
       <app-loader />
       } @else {
 
+      <div class="row row-cols-1 pb-3"> 
+        <div class="col"><h1>Recipes</h1></div>
+      </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
         @for (recipe of recipes; track $index) {
         <div class="col">
           <div class="card shadow-sm">
+            <a [routerLink]="recipe._id">
             @if (recipe.imgUrl) {
-              <img src={{recipe.imgUrl}}>
+              <img src={{recipe.imgUrl}} class="recipe-img">
             } @else {
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
               role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -21,15 +25,15 @@
               <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
                 dy=".3em">Thumbnail</text>
             </svg>
-            }
+            }</a>
 
             <div class="card-body">
-              <p class="card-text">{{recipe.recipeName}}.</p>
-              <p class="card-text">{{recipe.products}}.</p>
-              <p class="card-text">{{recipe.description}}.</p>
-              <p class="card-text">Date: <time>{{recipe.created_at | date : "yyyy-mm-dd hh:mm:ss"}}</time></p>
-              <p class="card-text">Username: <span>{{ recipe.userId.username }}</span></p>
-              <p class="card-text">Subscribers: <span>{{ recipe?.subscribers?.length || 0 }}</span></p>
+              <h2><a [routerLink]="recipe._id">{{recipe.recipeName}}</a></h2>
+              <p class="card-text"><b>Products:</b> {{recipe.products}}.</p>
+              <p class="card-text"><b>How to prepare:</b> {{recipe.description}}.</p>
+              <p class="card-text"><b>Publish date:</b> <time> {{recipe.created_at | date : "yyyy-mm-dd hh:mm:ss"}}</time></p>
+              <p class="card-text"><b>Publish by:</b> <span> {{ recipe.userId.username }}</span></p>
+              <p class="card-text"><b>Subscribers:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
