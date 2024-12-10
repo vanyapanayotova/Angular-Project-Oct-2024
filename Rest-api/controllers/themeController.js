@@ -12,12 +12,8 @@ function getTheme(req, res, next) {
     const { themeId } = req.params;
 
     themeModel.findById(themeId)
-        .populate({
-            path : 'posts',
-            populate : {
-              path : 'userId'
-            }
-          })
+        .populate('userId')
+        .populate('posts')
         .then(theme => res.json(theme))
         .catch(next);
 }

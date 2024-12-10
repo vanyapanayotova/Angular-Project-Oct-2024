@@ -28,17 +28,11 @@
             }</a>
 
             <div class="card-body">
-              <h2><a [routerLink]="recipe._id">{{recipe.recipeName}}</a></h2>
+              <h2 class="fs-5"><a [routerLink]="recipe._id" class="text-decoration-none text-reset">{{recipe.recipeName}}</a></h2>
+              <hr/>
               <p class="card-text"><b>Products:</b> {{recipe.products}}.</p>
-              <p class="card-text"><b>How to prepare:</b> {{recipe.description}}.</p>
-              <p class="card-text"><b>Publish date:</b> <time> {{recipe.created_at | date : "yyyy-mm-dd hh:mm:ss"}}</time></p>
-              <p class="card-text"><b>Publish by:</b> <span> {{ recipe.userId.username }}</span></p>
-              <p class="card-text"><b>Subscribers:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
+              <p class="card-text"><b>Likes:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
                 <small class="text-muted">9 mins</small>
               </div>
             </div>

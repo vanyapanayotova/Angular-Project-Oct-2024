@@ -23,6 +23,8 @@ export class RecipesListComponent implements OnInit {
   ngOnInit() {
     this.apiService.getRecipes().subscribe((recipes) => {
       this.recipes = recipes;
+      console.log(recipes);
+      
       this.isLoading = false;
     });
   }

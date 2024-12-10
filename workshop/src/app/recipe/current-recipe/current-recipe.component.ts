@@ -36,6 +36,8 @@ export class CurrentRecipeComponent implements OnInit {
 
     this.apiService.getSingleRecipe(id).subscribe((recipe) => {
       this.recipe = recipe;
+      console.log(recipe);
+      
       this.isLoading = false;
     });
   }
