@@ -39,14 +39,14 @@ export const routes: Routes = [
       },
     ],
   },
-    // {
-    //   path: 'add-theme',
-    //   loadComponent: () =>
-    //     import('./theme/add-theme/add-theme.component').then(
-    //       (c) => c.AddThemeComponent
-    //     ),
-    //   canActivate: [AuthGuard],
-    // },
+    {
+      path: 'add-recipe',
+      loadComponent: () =>
+        import('./recipe/add-recipe/add-recipe.component').then(
+          (c) => c.AddRecipeComponent
+        ),
+      canActivate: [AuthGuard],
+    },
     // // End - Theme routing
 
     // { path: 'error', component: ErrorMsgComponent },

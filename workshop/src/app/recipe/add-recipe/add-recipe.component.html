@@ -1,0 +1,128 @@
+
+<!-- homepage -->
+<div class="container">
+
+  <div class="card mx-auto">
+    <div class="card-body">
+      <h1 class="card-title">Add recipe</h1>
+  
+      <form #form="ngForm" (ngSubmit)="addRecipe(form)">
+        
+       <!-- title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input 
+            type="text"
+            id="title"
+            name="title"
+            class="form-control" 
+            aria-describedby="title"
+            
+            [class]="((inputTitle?.touched && inputTitle?.errors?.['required']) || (inputTitle?.touched && inputTitle?.errors?.['titleValidator'])) ? 'input-error': ''"
+            ngModel
+            #inputTitle="ngModel"
+            required
+            minlength="4"
+          >
+
+          @if(inputTitle?.touched){
+            <div class="form-text">
+              @if(inputTitle?.errors?.['required']){
+              <p class="error">Title is required!</p>
+              }
+              <!--  -->
+              @if(inputTitle?.errors?.['minlength']){
+                <p class="error">Title must be at least 4 characters long.</p>
+                }
+            </div>
+            }
+        </div>
+
+        <!-- img URL -->
+        <div class="mb-3">
+          <label for="imgUrl" class="form-label">Image URL</label>
+          <input 
+            type="text"
+            id="imgUrl"
+            name="imgUrl"
+            class="form-control" 
+            aria-describedby="imgUrl"
+            
+            ngModel
+            #inputImgUrl="ngModel"
+          >
+        </div>
+
+        <!-- Products -->
+        <div class="mb-3">
+          <label for="products" class="form-label">Products</label>
+          <input 
+            type="text"
+            id="products"
+            name="products"
+            class="form-control" 
+            aria-describedby="products"
+            
+            [class]="((inputProducts?.touched && inputProducts?.errors?.['required'])) ? 'input-error': ''"
+            ngModel
+            #inputProducts="ngModel"
+            required
+            minlength="4"
+          >
+
+          @if(inputProducts?.touched){
+            <div class="form-text">
+              @if(inputProducts?.errors?.['required']){
+              <p class="error">Products is required!</p>
+              }
+              <!--  -->
+              @if(inputProducts?.errors?.['minlength']){
+                <p class="error">Products must be at least 4 characters long.</p>
+                }
+            </div>
+            }
+        </div>
+
+        <!-- description  -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            class="form-control" 
+            aria-describedby="description"
+            
+            [class]="((inputDescription?.touched && inputDescription?.errors?.['required'])) ? 'input-error': ''"
+            ngModel
+            #inputDescription="ngModel"
+            required
+            minlength="15"
+          ></textarea>
+
+          @if(inputDescription?.touched){
+            <div class="form-text">
+              @if(inputDescription?.errors?.['required']){
+              <p class="error">Description is required!</p>
+              }
+              <!--  -->
+              @if(inputDescription?.errors?.['minlength']){
+                <p class="error">Description must be at least 15 characters long.</p>
+                }
+            </div>
+            }
+        </div>
+
+        <button 
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="form.invalid" 
+        >
+        Save
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+</div>

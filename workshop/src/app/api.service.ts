@@ -26,7 +26,7 @@ export class ApiService {
     return this.http.get<Recipe>(`/api/themes/${id}`);
   }
 
-  createRecipe(recipeName: string,products: string, description: string, imgUrl: string) {
+  createRecipe(recipeName: string, products: string, description: string, imgUrl: string) {
     const payload = { recipeName, products, description, imgUrl };
     return this.http.post<Recipe>(`/api/themes`, payload);
   }
