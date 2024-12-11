@@ -113,13 +113,8 @@
             }
         </div>
 
-        <button 
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="form.invalid" 
-        >
-        Save
-        </button>
+        <button type="submit" class="btn btn-secondary me-2" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid" >Save</button>
 
       </form>
     </div>

@@ -14,8 +14,6 @@ export class ErrorMsgComponent implements OnInit {
 
   ngOnInit(): void {
     this.errorMsgService.apiError$.subscribe((err: any) => {
-      console.log(err);
-      
       this.errorMsg.set(err?.error?.message);
       scroll(0,0); //scroll to top to see the error
       setTimeout(() => this.errorMsg.set(''), 5000); //hide error after 5 sec

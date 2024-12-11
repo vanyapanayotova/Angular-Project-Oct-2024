@@ -8,6 +8,15 @@ function getThemes(req, res, next) {
         .catch(next);
 }
 
+function getMyThemes(req, res, next) {
+    console.log(req.user);
+    const { userId } = req.params;
+    themeModel.find({userId: userId})
+        .populate('userId')
+        .then(themes => res.json(themes))
+        .catch(next);
+}
+
 function getTheme(req, res, next) {
     const { themeId } = req.params;
 
@@ -89,5 +98,6 @@ module.exports = {
     getTheme,
     editTheme,
     subscribe,
-    deleteTheme
+    deleteTheme,
+    getMyThemes
 }

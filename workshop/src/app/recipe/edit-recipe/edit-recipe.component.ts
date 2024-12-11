@@ -50,4 +50,8 @@ export class EditRecipeComponent implements OnInit {
       this.router.navigate(['/recipes']);
     });
   }
+
+  cancel() {
+    this.router.navigate(['/recipes/' + this.recipe._id]);
+  }
 }

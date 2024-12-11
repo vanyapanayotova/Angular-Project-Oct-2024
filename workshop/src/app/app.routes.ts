@@ -9,6 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { PageNotFoundComponent } from './error/error.component';
+import { MyRecipesComponent } from './recipe/my-recipes/my-recipes.component';
 // import { HomeComponent } from './home/home.component';
 // import { PageNotFoundComponent } from './error/error.component';
 // import { LoginComponent } from './user/login/login.component';
@@ -35,6 +36,11 @@ export const routes: Routes = [
     path: 'recipes',
     children: [
       { path: '', component: RecipesListComponent },
+      {
+        path: 'my',
+        component: MyRecipesComponent,
+        canActivate: [AuthGuard],
+      },
       {
         path: ':recipeId',
         component: CurrentRecipeComponent,

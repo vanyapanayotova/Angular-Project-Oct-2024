@@ -82,7 +82,6 @@ export class RegisterComponent {
     this.userService
       .register(username!, email!, tel!, password!, rePassword!)
       .subscribe(() => {
-        console.log('registerrrr');
         this.router.navigate(['/recipes']);
       });
   }

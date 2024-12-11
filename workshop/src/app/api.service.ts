@@ -22,6 +22,10 @@ export class ApiService {
     return this.http.get<Recipe[]>(`/api/themes`);
   }
 
+  getMyRecipes(userId: string | undefined) {
+    return this.http.get<Recipe[]>(`/api/themes/my/` + userId);
+  }
+
   getSingleRecipe(id: string) {
     return this.http.get<Recipe>(`/api/themes/${id}`);
   }
