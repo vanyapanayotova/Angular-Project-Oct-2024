@@ -5,11 +5,12 @@ import { UserService } from '../../user/user.service';
 import { Recipe } from '../../types/recipe';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { DatePipe } from '@angular/common';
+import { ElapsedTimePipe } from '../../shared/pipes/elapsed-time.pipe';
 
 @Component({
   selector: 'app-current-recipe',
   standalone: true,
-  imports: [LoaderComponent, DatePipe, RouterLink],
+  imports: [LoaderComponent, DatePipe, RouterLink, ElapsedTimePipe ],
   templateUrl: './current-recipe.component.html',
   styleUrl: './current-recipe.component.css',
 })
