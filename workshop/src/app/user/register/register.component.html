@@ -17,7 +17,7 @@
             id="username" 
             aria-describedby="username"
             [class]="
-              isFieldTextMissing('username') || isNotMinLength ? 'input-error' : '' 
+              isFieldTextMissing('username') || isNotMinLength ? 'is-invalid' : '' 
               " 
             name="username" 
             formControlName="username" 
@@ -44,7 +44,7 @@
             type="email" 
             class="form-control" 
             aria-describedby="emailHelp"
-            [class]="isFieldTextMissing('email') || isEmailNotValid ? 'input-error' : ''" 
+            [class]="isFieldTextMissing('email') || isEmailNotValid ? 'is-invalid' : ''" 
             name="email" 
             id="email" 
             formControlName="email"
@@ -86,7 +86,7 @@
                passGroup?.get('password')?.errors?.['required'] ) ||
                (passGroup?.get('password')?.touched && 
                passGroup?.get('password')?.errors?.['minlength'])
-            ) ? 'input-error' : ''" 
+            ) ? 'is-invalid' : ''" 
             name="password" 
             id="password" 
             formControlName="password" 
@@ -115,7 +115,7 @@
                 (passGroup?.get('rePassword')?.touched &&
                 (passGroup?.get('rePassword')?.errors?.['required'] ||
                 passGroup?.errors?.['matchPasswordsValidator'])) 
-              ) ? 'input-error' : ''" 
+              ) ? 'is-invalid' : ''" 
               name="rePassword" 
               formControlName="rePassword" 
             >

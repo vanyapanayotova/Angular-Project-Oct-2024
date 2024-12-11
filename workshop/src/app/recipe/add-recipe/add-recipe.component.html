@@ -18,7 +18,7 @@
             class="form-control" 
             aria-describedby="title"
             
-            [class]="((inputTitle?.touched && inputTitle?.errors?.['required']) || (inputTitle?.touched && inputTitle?.errors?.['titleValidator'])) ? 'input-error': ''"
+            [class]="(inputTitle?.touched && inputTitle?.errors) ? 'is-invalid': ''"
             ngModel
             #inputTitle="ngModel"
             required
@@ -63,7 +63,7 @@
             class="form-control" 
             aria-describedby="products"
             
-            [class]="((inputProducts?.touched && inputProducts?.errors?.['required'])) ? 'input-error': ''"
+            [class]="(inputProducts?.touched && inputProducts?.errors) ? 'is-invalid': ''"
             ngModel
             #inputProducts="ngModel"
             required
@@ -93,7 +93,7 @@
             class="form-control" 
             aria-describedby="description"
             
-            [class]="((inputDescription?.touched && inputDescription?.errors?.['required'])) ? 'input-error': ''"
+            [class]="((inputDescription?.touched && inputDescription?.errors)) ? 'is-invalid': ''"
             ngModel
             #inputDescription="ngModel"
             required

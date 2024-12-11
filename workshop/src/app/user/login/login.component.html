@@ -15,7 +15,7 @@
             type="email" 
             class="form-control" 
             aria-describedby="email"
-            [class]="((inputEmail?.touched && inputEmail?.errors?.['required']) || (inputEmail?.touched && inputEmail?.errors?.['emailValidator'])) ? 'input-error': ''"
+            [class]="((inputEmail?.touched && inputEmail?.errors?.['required']) || (inputEmail?.touched && inputEmail?.errors?.['emailValidator'])) ? 'is-invalid': ''"
             name="email"
             id="email"
             ngModel
@@ -42,7 +42,7 @@
             <label for="password" class="form-label">Password</label>
             <input 
               class="form-control" 
-              [class]="((inputPassword?.touched && inputPassword?.errors?.['required']) || (inputPassword?.touched && inputPassword?.errors?.['minlength'])) ? 'input-error': ''"
+              [class]="((inputPassword?.touched && inputPassword?.errors?.['required']) || (inputPassword?.touched && inputPassword?.errors?.['minlength'])) ? 'is-invalid': ''"
               type="password"
               name="password"
               id="password"
