@@ -19,6 +19,14 @@ You will need to register in order to add recipes.
 
 ![catalog page](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(1).png?raw=true)
 
+![single recipe page](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(2).png?raw=true)
 
+![login form page](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(3).png?raw=true)
+
+![mobile](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(4).png?raw=true)
+
+![mobile single recipe page](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(4).png?raw=true)
+
+![mobile registration form](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(5).png?raw=true)
 
 
