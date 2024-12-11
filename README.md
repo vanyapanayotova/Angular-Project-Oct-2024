@@ -17,7 +17,7 @@ Go to workshop folder and open a console. Run `npm i` to instal all packages.
 Run `npm start` to start the Angular project which will be available on `http://localhost:4200/home`.
 You will need to register in order to add recipes.
 
-!(https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(1).png)
+![catalog page](https://github.com/vanyapanayotova/Angular-Project-Oct-2024/blob/main/screenShots/scr%20(1).png?raw=true)
 
 
 
