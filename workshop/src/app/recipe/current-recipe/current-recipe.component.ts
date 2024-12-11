@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { UserService } from '../../user/user.service';
 import { Recipe } from '../../types/recipe';
@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-current-recipe',
   standalone: true,
-  imports: [LoaderComponent, DatePipe],
+  imports: [LoaderComponent, DatePipe, RouterLink],
   templateUrl: './current-recipe.component.html',
   styleUrl: './current-recipe.component.css',
 })

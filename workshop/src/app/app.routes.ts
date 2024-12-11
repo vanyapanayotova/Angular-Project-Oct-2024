@@ -6,6 +6,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { RecipesListComponent } from './recipe/recipe-list/recipes-list.component';
 import { CurrentRecipeComponent } from './recipe/current-recipe/current-recipe.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 // import { HomeComponent } from './home/home.component';
 // import { PageNotFoundComponent } from './error/error.component';
 // import { LoginComponent } from './user/login/login.component';
@@ -35,18 +36,23 @@ export const routes: Routes = [
       {
         path: ':recipeId',
         component: CurrentRecipeComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
+      {
+        path: ':recipeId/edit',
+        component: EditRecipeComponent,
+        canActivate: [AuthGuard],
+      }
     ],
   },
-    {
-      path: 'add-recipe',
-      loadComponent: () =>
-        import('./recipe/add-recipe/add-recipe.component').then(
-          (c) => c.AddRecipeComponent
-        ),
-      canActivate: [AuthGuard],
-    },
+  {
+    path: 'add-recipe',
+    loadComponent: () =>
+      import('./recipe/add-recipe/add-recipe.component').then(
+        (c) => c.AddRecipeComponent
+      ),
+    canActivate: [AuthGuard],
+  },
     // // End - Theme routing
 
     // { path: 'error', component: ErrorMsgComponent },

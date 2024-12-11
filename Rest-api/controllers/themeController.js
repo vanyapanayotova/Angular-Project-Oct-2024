@@ -42,9 +42,33 @@ function subscribe(req, res, next) {
         .catch(next);
 }
 
+
+function editTheme(req, res, next) {
+    const { themeId } = req.params;
+    const { recipeName, products, description, imgUrl } = req.body;
+    const { _id: userId } = req.user;
+
+    // if the userId is not the same as this one of the post, the post will not be updated
+    themeModel.findOneAndUpdate(
+        { _id: themeId, userId }, 
+        { recipeName, products, description, imgUrl }, 
+        { new: true }
+    )
+        .then(updatedTheme => {
+            if (updatedTheme) {
+                res.status(200).json(updatedTheme);
+            }
+            else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        })
+        .catch(next);
+}
+
 module.exports = {
     getThemes,
     createTheme,
     getTheme,
+    editTheme,
     subscribe,
 }
