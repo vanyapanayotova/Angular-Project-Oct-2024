@@ -35,14 +35,17 @@
               <p class="card-text"><b>How to prepare:</b> {{recipe.description}}.</p>
               <p class="card-text"><b>Publish date:</b> <time> {{recipe.created_at | date : "yyyy-mm-dd-hh:mm:ss"}}</time></p>
               <p class="card-text"><b>Publish by:</b> <span> {{ recipe.userId.username }}</span></p>
-              <p class="card-text"><b>Subscribers:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
+              <p class="card-text"><b>Likes:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   @if (isOwner) {
                     <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/recipes/{{recipe._id}}/edit">Edit</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" (click)="onDelete($event)">Delete</button>
+                  } @else {
+                    @if (isLoggedIn && !isLikedByCurrentUser) {
+                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="onLike($event)">Like</button>
+                    }
                   }
-                  
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>

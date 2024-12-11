@@ -28,6 +28,10 @@ export class CurrentRecipeComponent implements OnInit {
     return this.userService.isLogged;
   }
 
+  get isLikedByCurrentUser(): boolean {
+    return this.recipe.subscribers.some(el => el == this.userService.user?._id);
+  }
+
   get username(): string {
     return this.userService.user?.username || '';
   }
@@ -45,13 +49,19 @@ export class CurrentRecipeComponent implements OnInit {
     });
   }
 
-
   onDelete(event: Event) {
     event.preventDefault();
-
     const id = this.route.snapshot.params['recipeId'];
-
     this.apiService.deleteRecipe(id).subscribe(() => {
+      this.router.navigate(['/recipes']);
+    });
+  }
+
+
+  onLike(event: Event) {
+    event.preventDefault();
+    const id = this.route.snapshot.params['recipeId'];
+    this.apiService.likeRecipe(id).subscribe(() => {
       this.router.navigate(['/recipes']);
     });
   }

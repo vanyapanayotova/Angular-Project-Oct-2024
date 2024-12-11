@@ -42,4 +42,9 @@ export class ApiService {
   deleteRecipe(recipeId: string) {
     return this.http.delete(`/api/themes/${recipeId}`);
   }
+
+    // lile -> http.like theme ID
+    likeRecipe(recipeId: string) {
+      return this.http.put(`/api/themes/${recipeId}/subscribe`, {});
+    }
 }
