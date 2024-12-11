@@ -7,6 +7,8 @@ import { RecipesListComponent } from './recipe/recipe-list/recipes-list.componen
 import { CurrentRecipeComponent } from './recipe/current-recipe/current-recipe.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { PageNotFoundComponent } from './error/error.component';
 // import { HomeComponent } from './home/home.component';
 // import { PageNotFoundComponent } from './error/error.component';
 // import { LoginComponent } from './user/login/login.component';
@@ -56,6 +58,6 @@ export const routes: Routes = [
     // // End - Theme routing
 
     // { path: 'error', component: ErrorMsgComponent },
-    // { path: '404', component: PageNotFoundComponent },
-    // { path: '**', redirectTo: '/404' },
+    { path: '404', component: PageNotFoundComponent },
+    { path: '**', redirectTo: '/404' },
 ];
