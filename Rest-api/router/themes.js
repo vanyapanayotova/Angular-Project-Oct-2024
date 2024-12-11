@@ -12,6 +12,7 @@ router.get('/:themeId', themeController.getTheme);
 router.post('/:themeId', auth(), postController.createPost);
 router.put('/:themeId', auth(), themeController.editTheme);
 router.put('/:themeId/subscribe', auth(), themeController.subscribe);
+router.delete('/:themeId', auth(), themeController.deleteTheme);
 
 router.put('/:themeId/posts/:postId', auth(), postController.editPost);
 router.delete('/:themeId/posts/:postId', auth(), postController.deletePost);

@@ -1,4 +1,4 @@
-const { themeModel } = require('../models');
+const { themeModel, userModel } = require('../models');
 const { newPost } = require('./postController')
 
 function getThemes(req, res, next) {
@@ -65,10 +65,29 @@ function editTheme(req, res, next) {
         .catch(next);
 }
 
+function deleteTheme(req, res, next) {
+    const { themeId } = req.params;
+    const { _id: userId } = req.user;
+
+    Promise.all([
+        themeModel.findOneAndDelete({ _id: themeId, userId }),
+        userModel.findOneAndUpdate({ _id: userId }, { $pull: { themes: themeId } }),
+    ])
+        .then(([deletedOne, _, __]) => {
+            if (deletedOne) {
+                res.status(200).json(deletedOne)
+            } else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        })
+        .catch(next);
+}
+
 module.exports = {
     getThemes,
     createTheme,
     getTheme,
     editTheme,
     subscribe,
+    deleteTheme
 }

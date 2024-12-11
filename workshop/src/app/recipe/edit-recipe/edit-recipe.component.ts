@@ -20,7 +20,7 @@ export class EditRecipeComponent implements OnInit {
     private apiService: ApiService, 
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService    
+    private userService: UserService
   ) {
   }
 
@@ -29,10 +29,14 @@ export class EditRecipeComponent implements OnInit {
 
     this.apiService.getSingleRecipe(id).subscribe((recipe) => {
       this.recipe = recipe;
-      console.log(recipe);
-      // form.value = this.recipe;
       this.isLoading = false;
+
+      //guard
+      if (this.recipe.userId._id !== this.userService.user?._id) {
+        this.router.navigate(['/recipes']);
+      }
     });
+
   }
 
   updateRecipe(form: NgForm) {

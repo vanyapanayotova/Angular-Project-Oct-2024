@@ -38,8 +38,11 @@
               <p class="card-text"><b>Subscribers:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/recipes/{{recipe._id}}/edit">Edit</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                  @if (isOwner) {
+                    <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/recipes/{{recipe._id}}/edit">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="onDelete($event)">Delete</button>
+                  }
+                  
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>

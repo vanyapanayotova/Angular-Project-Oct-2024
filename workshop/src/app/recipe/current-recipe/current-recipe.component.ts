@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { UserService } from '../../user/user.service';
 import { Recipe } from '../../types/recipe';
@@ -20,7 +20,8 @@ export class CurrentRecipeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) {}
 
   get isLoggedIn(): boolean {
@@ -31,14 +32,27 @@ export class CurrentRecipeComponent implements OnInit {
     return this.userService.user?.username || '';
   }
 
+  get isOwner(): boolean {
+    return this.recipe.userId._id == this.userService.user?._id;
+  }
+
   ngOnInit(): void {
     const id = this.route.snapshot.params['recipeId'];
 
     this.apiService.getSingleRecipe(id).subscribe((recipe) => {
-      this.recipe = recipe;
-      console.log(recipe);
-      
-      this.isLoading = false;
+      this.recipe = recipe;      
+      this.isLoading = false;     
+    });
+  }
+
+
+  onDelete(event: Event) {
+    event.preventDefault();
+
+    const id = this.route.snapshot.params['recipeId'];
+
+    this.apiService.deleteRecipe(id).subscribe(() => {
+      this.router.navigate(['/recipes']);
     });
   }
 }
