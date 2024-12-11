@@ -30,10 +30,12 @@
             <div class="card-body">
               <h2 class="fs-5"><a [routerLink]="recipe._id" class="text-decoration-none text-reset">{{recipe.recipeName}}</a></h2>
               <hr/>
-              <p class="card-text"><b>Products:</b> {{recipe.products}}.</p>
+              <p class="card-text"><b>Products:</b> {{recipe.products | slice }}</p>
               <p class="card-text"><b>Likes:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">9 mins</small>
+                <small class="text-muted">
+                  {{recipe.created_at | elapsedTime }}
+                </small>
               </div>
             </div>
           </div>

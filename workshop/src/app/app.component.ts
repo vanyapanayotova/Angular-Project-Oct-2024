@@ -12,7 +12,6 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    BannerComponent,
     AuthenticateComponent,
     ErrorMsgComponent
   ],

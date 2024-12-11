@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-recipes-list',
   standalone: true,
-  imports: [LoaderComponent, RouterLink, SlicePipe, DatePipe],
+  imports: [LoaderComponent, RouterLink, SlicePipe, DatePipe, ElapsedTimePipe],
   templateUrl: './recipes-list.component.html',
   styleUrl: './recipes-list.component.css',
 })

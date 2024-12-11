@@ -35,7 +35,7 @@
               <p class="card-text"><b>How to prepare:</b> {{recipe.description}}.</p>
               <p class="card-text"><b>Publish date:</b> <time> {{recipe.created_at | date : "yyyy-mm-dd-hh:mm:ss"}}</time></p>
               <p class="card-text"><b>Publish by:</b> <span> {{ recipe.userId.username }}</span></p>
-              <p class="card-text"><b>Likes:</b> <span> {{ recipe?.subscribers?.length || 0 }}</span></p>
+              <p class="card-text"><b>Likes:</b> <span> {{ recipe.subscribers.length || 0 }}</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   @if (isOwner) {
